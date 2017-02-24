@@ -20,7 +20,7 @@
     <th>&nbsp;</th>
 </tr>
     <tr>
-        <td>${pregunta.texto}</td>
+        <td><a href="${pregunta.link}">${pregunta.texto}</a></td>
         <td>${pregunta.op1}</td>
         <td>${pregunta.op2}</td>
         <td>${pregunta.op3}</td>

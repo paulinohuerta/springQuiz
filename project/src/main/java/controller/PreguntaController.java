@@ -36,7 +36,7 @@ public class PreguntaController {
         sig.incrNum();
         Pregunta p = pregService.getPregunta(sig.getNum());
         if(p==null) {
-          conn.select(7); 
+          conn.select(9); 
           for(Pregunta p1 : pregService.getPreguntas()) {
             conn.hset("paulino:" + String.valueOf(p1.getId()),"correcta",String.valueOf(p1.getCorrecta()));
             conn.hset("paulino:" + String.valueOf(p1.getId()),"respuesta",String.valueOf(p1.getResp()));

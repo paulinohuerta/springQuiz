@@ -3,6 +3,7 @@ package service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import redis.clients.jedis.Jedis;
 
 import org.springframework.stereotype.Service;
 
@@ -14,19 +15,23 @@ public class PreguntaServiceImpl {
     /*
      * this implementation is not thread-safe
      */
+    private Jedis conn = new Jedis("localhost");
     private List<Pregunta> preguntas;
     
     public PreguntaServiceImpl() {
         preguntas = new ArrayList<Pregunta>();
-        Pregunta preg1 = new Pregunta(1, "Qien descubre America","Colon","Lopera","Paulino","ninguna",1);
-        Pregunta preg2 = new Pregunta(2, "Qien fue campeon","Real Madrid","Sevilla","Betis","ninguna",1);
-        Pregunta preg3 = new Pregunta(3, "Estamos en","2018","2017","2011","ninguna",2);
-        Pregunta preg4 = new Pregunta(4, "Estamos en el mes de","febrero","marzo","mayo","ninguna",4);
-        preguntas.add(preg1);
-        preguntas.add(preg2);
-        preguntas.add(preg3);
-        preguntas.add(preg4);
-        
+        conn.select(9);
+        preguntas = new ArrayList<Pregunta>();
+        for(String st : conn.smembers("quiz:set")) {
+            String texto=conn.hget("quiz:hash:" + st,"texto");
+            String link=conn.hget("quiz:hash:" + st,"link");
+            String op1=conn.hget("quiz:hash:" + st,"op1");
+            String op2=conn.hget("quiz:hash:" + st,"op2");
+            String op3=conn.hget("quiz:hash:" + st,"op3");
+            String op4=conn.hget("quiz:hash:" + st,"op4");
+            String well=conn.hget("quiz:hash:" + st,"well");
+            preguntas.add(new Pregunta(Integer.parseInt(st), texto, link,op1,op2,op3,op4,Integer.parseInt(well)));
+        }
     }
     
     public List<Pregunta> getPreguntas() {

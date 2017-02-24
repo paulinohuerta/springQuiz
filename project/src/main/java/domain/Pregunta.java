@@ -6,6 +6,7 @@ public class Pregunta implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
     private int id;
     private String texto;
+    private String link;
     private String op1;
     private String op2;
     private String op3;
@@ -14,12 +15,13 @@ public class Pregunta implements Serializable {
     private int correcta;
     
     public Pregunta() {
-       this.texto="lalalalla";
-       this.resp=25;
+       this.texto="";
+       this.resp=0;
     }
-    public Pregunta(int id, String texto,String op1, String op2, String op3, String op4,int correcta) {
+    public Pregunta(int id, String texto,String link, String op1, String op2, String op3, String op4,int correcta) {
         this.id = id;
         this.texto = texto;
+        this.link = link;
         this.op1 = op1;
         this.op2 = op2;
         this.op3 = op3;
@@ -28,6 +30,12 @@ public class Pregunta implements Serializable {
         this.resp = 0;
     }
     
+    public void setLink(String link) {
+        this.link = link;
+    }
+    public String getLink() {
+        return this.link;
+    }
     public int getResp() {
         return this.resp;
     }
