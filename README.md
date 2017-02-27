@@ -1,6 +1,6 @@
 # springQuiz
 ## Synopsis
-This project is Spring Quiz as it's name says. It needs a Redis server working and the execution of the pearl script *load-data.pl*. It loads questions and responses from *content-data* to the server. Then, the Spring webapp will show these questions anyway Redis is working.
+This project is Spring Quiz as it's name says. It needs a Redis server working and the execution of the perl script *load-data.pl*. It loads questions and responses from *content-data* to the server. Then, the Spring webapp will show these questions anyway Redis is working.
 
 ## Improvements
 - Finish the quiz when all questions are answered (currently it shows all question in loop).
