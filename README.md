@@ -18,10 +18,18 @@ This project is Spring Quiz as it's name says. It needs a Redis server working a
 ### Scheme: 
 
 |quiz:hash :9|key of hashmap|
+|----------|:-------------:|
 |field: texto | value: "El anillo unico lo llevo un..." |
+|----------|:-------------:|
 |field: link | value: "ESDLA" |
+|----------|:-------------:|
 | field: op1 | value: Humano |
+|----------|:-------------:|
 | field: op2 | value: Mediano |
+|----------|:-------------:|
 | field: op3 | value: Enano |
+|----------|:-------------:|
 | field: op4 | value: Elfo |
+|----------|:-------------:|
 | field: well | value: 2 |
+|----------|:-------------:|
