@@ -27,8 +27,8 @@ This project is Spring Quiz as it's name says. It needs a Redis server working a
 | field: well | value: 2 |
 
 
-|   |   |   |   |   |
-|---|---|---|---|---|
+|   |   |
+|---|---|
 |quiz:hash :9|key of hashmap|
 |field: texto | value: "El anillo unico lo llevo un..." |
 |field: link | value: "ESDLA" |
