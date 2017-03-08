@@ -10,11 +10,11 @@ This project is Spring Quiz as it's name says. It needs a Redis server working a
 ## Requirements:
 - Insert in Redis server values for questions.
 - Steps:
-
+```
  select 9
  sadd quiz:set 1 2 3 4 5 6 7 8 9 (index for questions)
  hmset quiz:hash :9 texto "El anillo unico lo llevo un..." link "ESDLA" op1 Humano op2 Mediano op3 Enano op4 Elfo well 2 (Insert questions in redis, scheme)
-
+```
 ### Scheme: 
 
 |   |   |
