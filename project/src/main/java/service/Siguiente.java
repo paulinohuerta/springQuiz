@@ -22,6 +22,6 @@ public class Siguiente {
     return num;
   }
   public void initNum() {
-    num=1;
+    num=0;
   }
 }
