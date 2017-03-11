@@ -1,14 +1,9 @@
 package domain;
+
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.Id;
-
-@Entity
 public class Pregunta implements Serializable {
     private static final long serialVersionUID = 5658716793957904104L;
-    @Id
     private int id;
     private String texto;
     private String link;
@@ -16,13 +11,14 @@ public class Pregunta implements Serializable {
     private String op2;
     private String op3;
     private String op4;
-    @Column(name = "well")
-    private String correcta;
+    private int resp;
+    private int correcta;
     
     public Pregunta() {
        this.texto="";
+       this.resp=0;
     }
-    public Pregunta(int id, String texto,String link, String op1, String op2, String op3, String op4,String correcta) {
+    public Pregunta(int id, String texto,String link, String op1, String op2, String op3, String op4,int correcta) {
         this.id = id;
         this.texto = texto;
         this.link = link;
@@ -31,6 +27,7 @@ public class Pregunta implements Serializable {
         this.op3 = op3;
         this.op4 = op4;
         this.correcta = correcta;
+        this.resp = 0;
     }
     
     public void setLink(String link) {
@@ -38,6 +35,12 @@ public class Pregunta implements Serializable {
     }
     public String getLink() {
         return this.link;
+    }
+    public int getResp() {
+        return this.resp;
+    }
+    public void setResp(int resp) {
+        this.resp = resp;
     }
     public int getId() {
         return id;
@@ -75,10 +78,10 @@ public class Pregunta implements Serializable {
     public void setOp4(String op4) {
         this.op4 = op4;
     }
-    public String getCorrecta() {
+    public int getCorrecta() {
         return correcta;
     }
-    public void setCorrecta(String correcta) {
+    public void setCorrecta(int correcta) {
         this.correcta = correcta;
     }
 }
