@@ -21,7 +21,6 @@ public class PreguntaServiceImpl {
     public PreguntaServiceImpl() {
         preguntas = new ArrayList<Pregunta>();
         conn.select(9);
-        preguntas = new ArrayList<Pregunta>();
         for(String st : conn.smembers("quiz:set")) {
             String texto=conn.hget("quiz:hash:" + st,"texto");
             String link=conn.hget("quiz:hash:" + st,"link");
@@ -53,6 +52,29 @@ public class PreguntaServiceImpl {
     }
 
     public void setRespuesta(int i,int j) {
-       preguntas.get(i-1).setResp(j);
+        preguntas.get(i-1).setResp(j);
+        
+    }
+
+    public int getContador(){
+        int contador=0;
+        
+        List<Pregunta> p=new ArrayList<Pregunta>();
+        conn.select(9);
+        for(String st : conn.smembers("quiz:set")) {
+            String well=conn.hget("quiz:hash:" + st,"well");
+            Pregunta pers=new Pregunta();
+            pers.setCorrecta(Integer.parseInt(well));
+            p.add(pers);
+        }
+        for(int m=0;m<p.size();m++){
+            for(int n=0;n<preguntas.size();n++){
+                if(p.get(m).getCorrecta()==preguntas.get(n).getResp()){
+                    contador=contador+1;
+                    System.out.println(contador);
+                }
+            }
+        }
+        return contador;
     }
 }

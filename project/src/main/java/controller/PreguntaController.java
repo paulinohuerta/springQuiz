@@ -43,6 +43,11 @@ public class PreguntaController {
           }
           sig.initNum();
           p = pregService.getPregunta(sig.getNum());
+
+          int contador=pregService.getContador();
+            logger.info("entra");
+            model.addAttribute("contador", contador);
+            return "Puntuacion";
         }
         model.addAttribute("pregunta", p);
         return "PregActual";
@@ -52,7 +57,15 @@ public class PreguntaController {
         logger.info("save-pregs");
         int v1 = Integer.parseInt(valor);
         Pregunta p = pregService.getPregunta(sig.getNum());
+        logger.info(p+"");
+        if(p==null) {
+            int contador=pregService.getContador();
+            logger.info("entra");
+            return "Puntuacion";
+            
+        }
         pregService.setRespuesta(sig.getNum(),v1);
         return "redirect:/list-pregs";
+        
     }
 }
