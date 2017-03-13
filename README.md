@@ -6,3 +6,6 @@ This project is Spring Quiz as it's name says. It needs a Redis server working a
 - Finish the quiz when all questions are answered (currently it shows all question in loop).
 - Getting score answering the correct option, and showing it at the end of the quiz.
 - Introducing a player name (now it's always *Paulino*).
+
+
+You must to move the directory fotos to your localhost. Remember to connect to your Redis
